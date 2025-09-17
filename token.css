@@ -1,0 +1,48 @@
+:root {
+    /* Фоны */
+    --color-bg-base: #1D2F30;
+    --color-bg-dark: #0B1919;
+    --color-bg-light: #ffffff;
+
+    /* Акценты */
+    --color-accent: #BAE249;
+    --color-accent-hover: #91AC46;
+    --color-accent-active: #688B05;
+
+    /* Тексты */
+    --color-text-primary: #ffffff;
+    --color-text-secondary: #899D9D;
+    --color-text-accent: #506829;
+
+    /* Служебные */
+    --color-focus: #83A440;
+
+    /* Шрифты */
+    --font-family-base: "Open Sans", sans-serif;
+    --font-family-title: "Cormorant", serif;
+
+    /* Размеры */
+    --font-size-base: 16px;
+    --font-size-md: 24px;
+    --font-size-lg: 48px;
+    --font-size-xl: 60px;
+
+    /* Жирность */
+    --font-weight-normal: 400;
+    --font-weight-bold: 700;
+
+    /* Межстрочный интервал */
+    --line-height-base: 150%;
+    --line-height-tight: 100%;
+
+    /* Отступы */
+    --spacing-xs: 8px;
+    --spacing-sm: 16px;
+    --spacing-md: 30px;
+    --spacing-lg: 60px;
+    --spacing-xl: 90px;
+    /*  Радиусы */
+    --radius-sm: 3px;
+    --radius-md: 8px;
+    --radius-full: 50%;
+}

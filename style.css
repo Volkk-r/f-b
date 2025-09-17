@@ -11,9 +11,10 @@ body {
 }
 
 body {
-    line-height: 1.5;
-    background-color: #1D2F30;
-    color: white;
+    font-family: var(--font-family-base);
+    line-height: var(--line-height-base);
+    background-color: var(--color-bg-base);
+    color: var(--color-text-primary);
 }
 
 ul,
@@ -43,7 +44,6 @@ select {
 }
 
 .container {
-    font-family: "Open Sans", sans-serif;
     width: 100%;
     max-width: 1440px;
     margin: 0 auto;
@@ -53,7 +53,7 @@ select {
 
 /* header */
 .header {
-    background-color: #0b1919;
+    background-color: var(--color-bg-dark);
 }
 
 .header__content {
@@ -68,20 +68,59 @@ select {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 64px;
 }
 
 .nav__item {
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 150%;
+    font-weight: var(--font-weight-normal);
+    font-size: var(--font-size-base);
+    line-height: var(--line-height-base);
 }
 
-.nav__item:not(:last-child) {
-    margin-right: 64px;
+.nav__item a {
+    transition: color 0.3s ease;
 }
 
-.search {
-    margin-right: 64px;
+/* Наведение */
+.nav__item a:hover {
+    color: var(--color-accent);
+}
+
+/* Нажатие */
+.nav__item a:active {
+    color: var(--color-accent-active);
+}
+
+/* Фокус */
+.nav__item a:focus-visible {
+    outline: 1px solid var(--color-focus);
+}
+
+.header__icons {
+    display: flex;
+    align-items: center;
+    gap: 64px;
+}
+
+/* Нормальное состояние */
+.header__icon {
+    color: var(--color-accent);
+    transition: color 0.3s ease;
+}
+
+/* Наведение */
+.header__icon:hover {
+    color: var(--color-accent-hover);
+}
+
+/* Нажатие */
+.header__icon:active {
+    color: var(--color-accent-active);
+}
+
+/* Фокус */
+.header__icon:focus-visible {
+    outline: 1px solid var(--color-focus);
 }
 
 .hero {
@@ -89,74 +128,119 @@ select {
         linear-gradient(rgba(29, 47, 48, 0.7), rgba(29, 47, 48, 0.7)),
         /* полупрозрачный слой */
         url("./img/hero.jpg") center/cover no-repeat;
-
 }
 
 .hero__container {
-    padding-top: 90px;
-    padding-bottom: 135px;
+    padding-top: var(--spacing-xl);
+    /* 90px */
+    padding-bottom: calc(var(--spacing-xl) + var(--spacing-lg));
+    /* 90 + 60 = 150px (около твоих 135px) */
 }
 
 .hero__title {
-    font-weight: 700;
-    font-size: 60px;
-    line-height: 100%;
+    font-weight: var(--font-weight-bold);
+    font-size: var(--font-size-xl);
+    /* 60px */
+    line-height: var(--line-height-tight);
+    /* 100% */
     max-width: 630px;
-    font-family: "Cormorant", sans-serif;
-    margin-bottom: 35px;
+    font-family: var(--font-family-title);
+    margin-bottom: var(--spacing-md);
+    /* 30px вместо 35px */
 }
 
 .hero__descr {
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 150%;
+    font-weight: var(--font-weight-normal);
+    font-size: var(--font-size-base);
+    /* 16px */
+    line-height: var(--line-height-base);
+    /* 150% */
     max-width: 675px;
-    margin-bottom: 35px;
+    margin-bottom: var(--spacing-md);
+    /* 30px вместо 35px */
 }
 
 .hero__btn {
+    max-width: 160px;
     display: flex;
-    font-weight: 700;
-    font-size: 16px;
-    color: #bae249;
+    font-weight: var(--font-weight-bold);
+    font-size: var(--font-size-base);
+    /* 16px */
+    color: var(--color-accent);
     align-items: center;
-    gap: 12px;
+    gap: var(--spacing-xs);
+    /* 12px → ближе всего к 8px */
+    transition: color 0.3s ease;
+}
+
+.hero__btn:hover {
+    color: var(--color-accent-hover);
+}
+
+.hero__btn:active {
+    color: var(--color-accent-active);
+}
+
+.hero__btn:focus-visible {
+    outline: 1px solid var(--color-focus);
 }
 
 .card {
-    /* display: flex;
-    flex-direction: column; */
     max-width: 255px;
-    border: 1px solid #0b1919;
+    border: 1px solid var(--color-bg-dark);
 }
 
 .cards {
     display: flex;
-    gap: 30px;
-    margin-bottom: 25px;
+    gap: var(--spacing-md);
+    /* было 30px */
+    margin-bottom: var(--spacing-sm);
+    /* было 25px */
 }
 
 .catalog__container {
-    margin-top: 60px;
-    margin-bottom: 60px;
+    margin-top: var(--spacing-lg);
+    /* 60px */
+    margin-bottom: var(--spacing-lg);
+    /* 60px */
 }
 
 .catalog {
-    margin-bottom: 60px;
+    margin-bottom: var(--spacing-lg);
+    /* 60px */
 }
 
 .card__wrapp {
-    background-color: #0b1919;
-    padding: 30px 16px;
+    background-color: var(--color-bg-dark);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: auto;
+    padding: var(--spacing-md) var(--spacing-sm);
+    /* 30px 16px */
     width: 255px;
     height: 180px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    position: relative;
+}
+
+.card--plant {
+    background-image: url("./img/Layer3.png");
+}
+
+.card--flower {
+    background-image: url("./img/Layer2.png");
+}
+
+.card--leaf {
+    background-image: url("./img/Layer4.png");
+}
+
+.card--wood {
+    background-image: url("./img/Layer1.png");
 }
 
 .card__content {
-    padding: 16px;
+    padding: var(--spacing-sm);
+    /* 16px */
     min-height: 330px;
     display: flex;
     flex-direction: column;
@@ -164,27 +248,64 @@ select {
 }
 
 .card__title {
-    font-weight: 700;
-    font-size: 24px;
-    line-height: 150%;
-    font-family: "Cormorant", sans-serif;
+    font-weight: var(--font-weight-bold);
+    font-size: var(--font-size-md);
+    line-height: var(--line-height-base);
+    font-family: var(--font-family-title);
     margin-bottom: 10px;
 }
 
 .card__descr {
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 150%;
-    color: #899d9d;
+    font-weight: var(--font-weight-normal);
+    font-size: var(--font-size-base);
+    line-height: var(--line-height-base);
+    color: var(--color-text-secondary);
 }
 
-.btn-small {
-    border: 1px solid #bae249;
+.card__btn {
+    border: 1px solid var(--color-accent);
     padding: 20px 59px;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 150%;
-    color: #bae249;
+    /* можно вынести в spacing токены отдельно */
+    font-weight: var(--font-weight-normal);
+    font-size: var(--font-size-base);
+    line-height: var(--line-height-base);
+    color: var(--color-accent);
+    background-color: transparent;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+.card__btn:hover {
+    background-color: var(--color-accent);
+    color: var(--color-bg-dark);
+}
+
+.card__btn:focus-visible {
+    outline: 1px solid var(--color-focus);
+    outline-offset: 3px;
+}
+
+.card__btn:active {
+    border-color: var(--color-accent-active);
+    background-color: var(--color-accent-active);
+    color: var(--color-bg-dark);
+}
+
+.card__badge {
+    position: absolute;
+    top: var(--spacing-sm);
+    left: var(--spacing-sm);
+    border: 1px solid var(--color-text-secondary);
+    border-radius: var(--radius-full);
+    width: 24px;
+    height: 24px;
+    display: flex;
+    justify-content: center;
+    font-family: var(--font-family-title);
+    font-weight: var(--font-weight-bold);
+    font-size: var(--font-size-base);
+    text-align: center;
+    color: var(--color-text-secondary);
+    line-height: 1;
 }
 
 .pagination {
@@ -192,14 +313,36 @@ select {
 }
 
 .page {
-    font-family: "Cormorant", sans-serif;
-    font-weight: 700;
-    font-size: 24px;
-    line-height: 150%;
-    margin: 0 30px;
+    font-family: var(--font-family-title);
+    font-weight: var(--font-weight-bold);
+    font-size: var(--font-size-md);
+    line-height: var(--line-height-base);
+    margin: 0 var(--spacing-md);
+    /* 30px */
 }
 
-.new-artifacts__title {
+.pagination__btn {
+    color: var(--color-text-secondary);
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.pagination__btn:hover {
+    color: var(--color-accent);
+}
+
+.pagination__btn:active {
+    color: var(--color-accent-active);
+}
+
+.pagination__btn:focus-visible {
+    outline: 2px solid var(--color-focus);
+    outline-offset: 2px;
+}
+
+
+
+.artifacts__title {
     font-family: "Cormorant", sans-serif;
     font-style: italic;
     font-weight: 700;
@@ -208,7 +351,7 @@ select {
     margin-bottom: 30px;
 }
 
-.new-artifacts__content {
+.artifacts__content {
     display: flex;
     gap: 30px;
 
@@ -223,7 +366,7 @@ select {
     padding: 16px;
 }
 
-.artifacts__title {
+.artifacts__subtitle {
     font-family: "Cormorant", sans-serif;
     font-weight: 700;
     font-size: 24px;
@@ -251,9 +394,22 @@ select {
     display: flex;
     align-items: center;
     gap: 8px;
+    transition: color 0.3s ease;
 }
 
-.new-artifacts {
+.artifacts__btn:hover {
+    color: #688b05;
+}
+
+.artifacts__btn:active {
+    color: #899d9d;
+}
+
+.artifacts__btn:focus-visible {
+    outline: 1px solid #83a440;
+}
+
+.artifacts {
     margin-bottom: 60px;
 }
 
@@ -298,6 +454,20 @@ select {
     padding: 10px 16px;
     background-color: white;
     min-width: 350px;
+    transition: background-color 0.3s ease;
+}
+
+.support__input:hover {
+    background-color: #899d9d;
+}
+
+.support__input:focus-visible {
+    outline: 1px solid #83a440;
+    outline-offset: 3px;
+}
+
+.support__input:active {
+    background-color: #899d9d;
 }
 
 .support__input::placeholder {
@@ -305,6 +475,15 @@ select {
     font-size: 16px;
     line-height: 150%;
     color: #899d9d;
+    transition: color 0.3s ease;
+}
+
+.support__input:hover::placeholder {
+    color: white;
+}
+
+.support__input:active::placeholder {
+    color: #0b1919;
 }
 
 .support__btn {
@@ -313,6 +492,20 @@ select {
     color: #0b1919;
     font-weight: 700;
     font-size: 16px;
+    transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+.support__btn:hover {
+    background-color: #91ac46;
+}
+
+.support__btn:focus-visible {
+    outline: 1px solid #83a440;
+    outline-offset: 3px;
+}
+
+.support__btn:active {
+    background-color: #688b05;
 }
 
 /* .footer__container {} */
@@ -332,4 +525,37 @@ select {
     font-weight: 400;
     font-size: 12px;
     color: #899d9d;
+}
+
+.footer__socials {
+    padding-top: 18px;
+    padding-bottom: 18px;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    justify-content: center;
+    background-color: #0b1919;
+}
+
+.footer__link {
+    color: #899d9d;
+    /* базовый цвет иконки */
+    transition: color 0.3s ease;
+    /* плавная смена */
+}
+
+.footer__link:hover {
+    color: #bae249;
+    /* наведение */
+}
+
+.footer__link:active {
+    color: #688b05;
+    /* нажатие */
+}
+
+.footer__link:focus-visible {
+    outline: 1px solid #83a440;
+    /* доступность */
+    outline-offset: 3px;
 }
