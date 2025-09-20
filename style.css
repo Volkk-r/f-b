@@ -354,11 +354,12 @@ select {
 .artifacts__content {
     display: flex;
     gap: 30px;
+    flex-wrap: wrap;
 
 }
 
 .artifacts__gallery {
-    min-width: 825px;
+    width: 825px;
 }
 
 .artifacts__info {

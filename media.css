@@ -1,0 +1,89 @@
+@media (max-width: 330px) {
+    .container {
+        width: 100%;
+        max-width: 320px;
+        margin: 0 auto;
+        padding-left: 32px;
+        padding-right: 32px;
+    }
+
+    .nav__list {
+        display: none;
+    }
+
+    .header__icons {
+        gap: 32px;
+    }
+
+    .hero {
+        margin-bottom: 60px;
+    }
+
+    .hero__title {
+        font-size: 48px;
+    }
+
+    .hero__descr {
+        display: none;
+    }
+
+    .hero__container {
+        padding-top: 50px;
+
+        padding-bottom: 55px;
+
+    }
+
+    .artifacts__gallery {
+        width: 255px;
+        /* фиксируем ширину */
+        overflow-x: auto;
+        /* горизонтальный скролл */
+        overflow-y: hidden;
+        /* вертикальный не нужен */
+        white-space: nowrap;
+        /* чтобы элементы не переносились */
+    }
+
+    .artifacts__gallery img {
+        display: block;
+        width: auto;
+        /* пусть картинка остаётся в своём размере */
+        height: auto;
+        max-width: none;
+        /* ОТМЕНА глобального max-width:100% */
+        max-height: none;
+    }
+
+    .support__descr {
+        display: none;
+    }
+
+    .support__input {
+        min-width: 255px;
+    }
+
+    .support__btn {
+        padding: 12px 17px;
+
+    }
+
+    .support__title {
+        margin-bottom: 45px;
+    }
+    .cards {
+        display: flex;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        gap: 16px;
+      }
+    
+      .card {
+        flex: 0 0 100%;
+        scroll-snap-align: start;
+      }
+    
+      .pagination {
+        margin-top: 16px;
+      }
+}
